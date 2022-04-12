@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400&display=swap');
+*{
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.signin-form-containter{
+  width: 35vw;
+  background: rgb(32, 34, 44);
+  border: 1.5rem solid gray;
+  padding: 20px;
+  margin: 5rem auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-input{
+  border: 1px gray solid;
+  border-radius: 0;
+  background: transparent;
+  width: 88%;
+  color: white;
+  padding: 10px;
+  margin: 8px 10px;
+  font-size: 15px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.name-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 92%;
+}
+
+.button-container{
+  display: flex;
+  padding: 10px;
+}
+.my-btn{
+  border: none;
+  width: 93%;
+  text-align: center;
+  padding: 10px;
+  background: #198754;
+  color: aliceblue;
+  font-size: 18px;
+}
+.form-input:focus, .form-input1:focus{
+  background: rgba(1, 1, 1, .2);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1{
+  color: aliceblue;
+  text-align: center;
+  font-size: 22px;
+}
+.pass-inp{
+  width: 91%;
+}
+.password-input{
+  background: transparent;
+  border: 1px gray solid;
+  border-radius: 0;
+}
+.error{
+  color: red;
+  margin: 0 0 0 20px;
+}
+a{
+  color: aliceblue;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon-position {
+  position: relative;
+}
+.icon{
+  position: absolute;
+  color: gray;
+  left: 35px;
+  bottom: 17px;
+  cursor: pointer;
 }

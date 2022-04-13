@@ -50,29 +50,28 @@ const Signin = () => {
          lastName: "",
          email: "",
          password: "",
-         province:"",
-         city:"",
+         province: "",
+         city: "",
       },
       validationSchema: SignupSchema,
 
-      onSubmit: (values, { setSubmitting, resetForm}) => {
+      onSubmit: (values, { setSubmitting, resetForm }) => {
          setSubmitting(false);
-         alert("ثبت نام با موفقیت انجام شد :)")
+         alert("ثبت نام با موفقیت انجام شد :)");
          axios.post("http://localhost:3001/users", {
             firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,
             password: values.password,
             province: values.province,
-            city: values.city
+            city: values.city,
          });
-         resetForm()
+         resetForm();
       },
    });
 
    return (
-      <form onSubmit={formik.handleSubmit}>
-         {console.log(formik.handleSubmit)}
+      <form className="general-form" onSubmit={formik.handleSubmit}>
          <div className="name-container">
             <div>
                <input
@@ -98,6 +97,7 @@ const Signin = () => {
                   id="lastName"
                   name="lastName"
                   type="text"
+                  style={{marginRight:"12px"}}
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.lastName}
@@ -118,7 +118,7 @@ const Signin = () => {
             valueCity={formik.values.province}
             valueProvince={formik.values.province}
          />
-         <div style={{ width: "98%" }}>
+         <div className="email-pass" style={{ width: "98%" }}>
             <input
                className="form-input"
                type="email"
@@ -157,7 +157,9 @@ const Signin = () => {
                   formik.errors.password}
             </p>
          </div>
-         <input value="ثبت نام" className="my-btn" type="submit" />
+         <div className="button-container">
+            <input value="ثبت نام" className="my-btn" type="submit" style={{width:"96%"}} />
+         </div>
       </form>
    );
 };

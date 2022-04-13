@@ -16,7 +16,7 @@ const Education = () => {
          <select
             name="education"
             onChange={formik.handleChange}
-            className="form-input select-size"
+            className="form-select select-size"
             type="email"
             placeholder="میزان تحصیلات"
          >
@@ -32,7 +32,7 @@ const Education = () => {
             <option value="COMPLEMENT">دکترا</option>
          </select>
 
-         <div>
+         <div style={{width:"98%", marginRight:"6px"}}>
             {formik.values.education && (
                <input
                   className="form-input select-size"

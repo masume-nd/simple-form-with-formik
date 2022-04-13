@@ -1,16 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
 import axios from "axios";
-import UserContext from "../UserContext";
-import Withlogin from "../WithLogin";
 
-const Login = () => {
+const Login = (props) => {
    const [passVisibility, setpassVisibility] = useState(false);
-   const [loginUsers, setloginUsers] = useState({});
    return (
       <>
-       <UserContext.Provider value={}>
          <Formik
             initialValues={{ email: "", password: "" }}
             validate={(values) => {
@@ -27,7 +23,6 @@ const Login = () => {
                } else if (values.password < 8) {
                   errors.password = "رمز عبور باید حداقل ۸ کارکتر باشد!";
                }
-
                return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
@@ -39,7 +34,8 @@ const Login = () => {
                         item.email === values.email &&
                         item.password === values.password
                      ) {
-                        setloginUsers(item);
+                        props.setLoggedInUsers((preveState) => [...preveState, item])
+                        props.setIsLoggedIn(true);
                      }
                   });
                });
@@ -55,7 +51,7 @@ const Login = () => {
                isSubmitting,
                /* and other goodies */
             }) => (
-               <form onSubmit={handleSubmit}>
+               <form className="general-form" onSubmit={handleSubmit}>
                   <input
                      className="form-input"
                      type="email"
@@ -86,13 +82,13 @@ const Login = () => {
                      </span>
                   </div>
                   {errors.password && touched.password && errors.password}
+                <div className="button-container"> 
                   <input value="ورود" className="my-btn" type="submit" />
+               </div> 
                </form>
             )}
          </Formik>
-         </UserContext.Provider>
       </>
    );
 };
-
-export default Withlogin(Login);
+export default Login;

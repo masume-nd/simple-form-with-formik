@@ -13,13 +13,13 @@ const Birthplace = (props) => {
       },
    });
    return (
-         <form>
+         <>
             <select
                name="province"
                onChange={props.onChange}
                value={props.valueProvince}
                type="select"
-               className="form-input"
+               className="form-select"
             >
                <option value="" disabled selected hidden>
                  استان
@@ -48,7 +48,7 @@ const Birthplace = (props) => {
                      `,
                      });
                }}
-               className="form-input"
+               className="form-select"
                type="text"
                name="city"
             >
@@ -64,7 +64,7 @@ const Birthplace = (props) => {
                   );
                })}
             </select>
-         </form>
+         </>
    );
 };
 
